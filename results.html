@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agro Market E-Commerce | Results</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI', sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#f5f7fa,#e9f5ee);
+}
+
+/* HEADER */
+header{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(10px);
+color:white;
+z-index:1000;
+}
+
+.logo{
+color:#22c55e;
+font-weight:bold;
+letter-spacing:1px;
+}
+
+.hamburger{
+display:none;
+font-size:24px;
+cursor:pointer;
+}
+
+nav{
+display:flex;
+gap:15px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-size:14px;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#22c55e;
+}
+
+.active{
+color:#22c55e;
+}
+
+/* HERO */
+.hero{
+height:260px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+background:url('img/results-hero.jpg') center/cover no-repeat;
+position:relative;
+margin-top:70px;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.55);
+}
+
+.hero-content{
+position:relative;
+color:white;
+}
+
+.hero h2{
+font-size:32px;
+margin-bottom:10px;
+}
+
+/* SECTION */
+section{
+padding:50px 70px;
+}
+
+/* CARD */
+.card{
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 8px 20px rgba(0,0,0,0.08);
+margin-bottom:25px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.tag{
+display:inline-block;
+padding:5px 10px;
+background:#dcfce7;
+color:#166534;
+border-radius:20px;
+font-size:12px;
+margin-bottom:10px;
+}
+
+/* PDF LIST */
+.pdf-list{
+display:flex;
+flex-direction:column;
+gap:15px;
+margin-top:15px;
+}
+
+.pdf-item{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px;
+border-radius:10px;
+border:1px solid #eee;
+flex-wrap:wrap;
+}
+
+.pdf-item h3{
+margin-bottom:5px;
+}
+
+.pdf-item a{
+background:#22c55e;
+color:white;
+padding:8px 15px;
+border-radius:8px;
+text-decoration:none;
+transition:0.3s;
+}
+
+.pdf-item a:hover{
+background:#16a34a;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+
+.hamburger{
+display:block;
+}
+
+nav{
+position:absolute;
+top:70px;
+right:0;
+background:rgba(0,0,0,0.9);
+flex-direction:column;
+width:220px;
+display:none;
+}
+
+nav.show{
+display:flex;
+}
+
+nav a{
+padding:10px;
+border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+section{
+padding:25px;
+}
+
+.hero{
+height:200px;
+}
+
+.hero h2{
+font-size:22px;
+}
+
+.pdf-item{
+flex-direction:column;
+align-items:flex-start;
+gap:10px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">Agro Market E-Commerce</div>
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+
+<nav id="navMenu">
+<a href="index.html">Home</a>
+<a href="data.html">Data Gathering</a>
+<a href="results.html" class="active">Results</a>
+<a href="reflections.html">Reflections</a>
+<a href="findings.html">Findings</a>
+<a href="walkthrough.html">Walkthrough</a>
+<a href="video.html">Video</a>
+</nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-content">
+<h2>Results</h2>
+<p>Usability Testing and Evaluation Outcomes</p>
+</div>
+</section>
+
+<section>
+
+<!-- SUMMARY -->
+<div class="card">
+<span class="tag">Summary</span>
+<h2>Usability Testing Results</h2>
+<p>
+The usability testing revealed that users can easily navigate the Agro E-Commerce prototype.
+Most participants found the interface simple, clear, and user-friendly.
+</p>
+</div>
+
+<!-- ISSUES -->
+<div class="card">
+<span class="tag">Key Issues</span>
+<h2>Identified Problems</h2>
+<p>
+• Some navigation elements are unclear for first-time users<br>
+• Minor spacing issues on smaller screens<br>
+• Certain buttons need clearer labels
+</p>
+</div>
+
+<!-- DISCUSSION -->
+<div class="card">
+<span class="tag">Discussion</span>
+<h2>Findings Analysis</h2>
+<p>
+The system performs well in terms of usability. However, improvements in navigation clarity,
+visual hierarchy, and mobile layout consistency are still needed.
+</p>
+</div>
+
+<!-- RECOMMENDATIONS -->
+<div class="card">
+<span class="tag">Recommendations</span>
+<h2>Improvement Suggestions</h2>
+<p>
+• Improve navigation structure<br>
+• Enhance button labels and icons<br>
+• Optimize mobile responsiveness<br>
+• Maintain consistent spacing across pages
+</p>
+</div>
+
+<!-- PDF SECTION -->
+<div class="card">
+<span class="tag">Attachment</span>
+<h2>Heuristic Evaluation Reports</h2>
+<p>Each team member evaluated the system. View their reports below:</p>
+
+<div class="pdf-list">
+
+<div class="pdf-item">
+<div>
+<h3>Rizza Moralida</h3>
+<p>Evaluator</p>
+</div>
+<a href="Heuristic_Evaluation_Workbook_1_Fillable.pdf" target="_blank">📄 View PDF</a>
+</div>
+
+<div class="pdf-item">
+<div>
+<h3>Mary Joy Perdon</h3>
+<p>Evaluator</p>
+</div>
+<a href="Heuristic_Evaluation_Workbook_1_Fillable.pdf" target="_blank">📄 View PDF</a>
+</div>
+
+<div class="pdf-item">
+<div>
+<h3>Princess Irish Oliver</h3>
+<p>Evaluator</p>
+</div>
+<a href="Heuristic_Evaluation_Workbook_1_Fillable.pdf" target="_blank">📄 View PDF</a>
+</div>
+
+<div class="pdf-item">
+<div>
+<h3>Emerson Jay Ricarte</h3>
+<p>Evaluator</p>
+</div>
+<a href="Heuristic_Evaluation_Workbook_1_Fillable.pdf" target="_blank">📄 View PDF</a>
+</div>
+
+</div>
+</div>
+
+</section>
+
+<script>
+function toggleMenu(){
+document.getElementById("navMenu").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>
