@@ -1,330 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agro Market E-Commerce | Results</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Market E-Commerce | Results</title>
 
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Segoe UI', sans-serif;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-body{
-background:linear-gradient(135deg,#f5f7fa,#e9f5ee);
-}
+        body {
+            background: linear-gradient(135deg, #f5f7fa, #e9f5ee);
+            color: #333;
+            line-height: 1.6;
+        }
 
-/* HEADER */
-header{
-position:fixed;
-top:0;
-width:100%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 40px;
-background:rgba(0,0,0,0.7);
-backdrop-filter:blur(10px);
-color:white;
-z-index:1000;
-}
+        /* HEADER & NAVIGATION */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(12px);
+            color: white;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
 
-.logo{
-color:#22c55e;
-font-weight:bold;
-letter-spacing:1px;
-}
+        .logo {
+            color: #22c55e;
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
 
-.hamburger{
-display:none;
-font-size:24px;
-cursor:pointer;
-}
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
 
-nav{
-display:flex;
-gap:15px;
-}
+        nav {
+            display: flex;
+            gap: 20px;
+        }
 
-nav a{
-color:white;
-text-decoration:none;
-font-size:14px;
-transition:0.3s;
-}
+        nav a {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
 
-nav a:hover{
-color:#22c55e;
-}
+        nav a:hover, nav a.active {
+            color: #22c55e;
+        }
 
-.active{
-color:#22c55e;
-}
+        /* HERO SECTION */
+        .hero {
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
+                        url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000') center/cover;
+            color: white;
+            margin-top: 60px;
+        }
 
-/* HERO */
-.hero{
-height:260px;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-background:url('img/results-hero.jpg') center/cover no-repeat;
-position:relative;
-margin-top:70px;
-}
+        .hero-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
 
-.hero::before{
-content:"";
-position:absolute;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.55);
-}
+        /* MAIN CONTENT */
+        section {
+            padding: 40px 10%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-.hero-content{
-position:relative;
-color:white;
-}
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+            border: 1px solid rgba(0,0,0,0.02);
+            transition: transform 0.3s ease;
+        }
 
-.hero h2{
-font-size:32px;
-margin-bottom:10px;
-}
+        .card:hover {
+            transform: translateY(-5px);
+        }
 
-/* SECTION */
-section{
-padding:50px 70px;
-}
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #dcfce7;
+            color: #166534;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
 
-/* CARD */
-.card{
-background:white;
-padding:25px;
-border-radius:15px;
-box-shadow:0 8px 20px rgba(0,0,0,0.08);
-margin-bottom:25px;
-transition:0.3s;
-}
+        h2 {
+            margin-bottom: 15px;
+            color: #1e293b;
+        }
 
-.card:hover{
-transform:translateY(-5px);
-}
+        p {
+            color: #475569;
+            font-size: 0.95rem;
+        }
 
-.tag{
-display:inline-block;
-padding:5px 10px;
-background:#dcfce7;
-color:#166534;
-border-radius:20px;
-font-size:12px;
-margin-bottom:10px;
-}
+        /* PDF LIST STYLING */
+        .pdf-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 20px;
+        }
 
-/* PDF LIST */
-.pdf-list{
-display:flex;
-flex-direction:column;
-gap:15px;
-margin-top:15px;
-}
+        .pdf-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: 0.3s ease;
+        }
 
-.pdf-item{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px;
-border-radius:10px;
-border:1px solid #eee;
-flex-wrap:wrap;
-}
+        .pdf-item:hover {
+            border-color: #22c55e;
+            background: #f0fdf4;
+        }
 
-.pdf-item h3{
-margin-bottom:5px;
-}
+        .pdf-info h3 {
+            font-size: 1rem;
+            color: #334155;
+            margin-bottom: 2px;
+        }
 
-.pdf-item a{
-background:#22c55e;
-color:white;
-padding:8px 15px;
-border-radius:8px;
-text-decoration:none;
-transition:0.3s;
-}
+        .pdf-info p {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
 
-.pdf-item a:hover{
-background:#16a34a;
-}
+        .btn-view {
+            background: #22c55e;
+            color: white;
+            padding: 8px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: 0.3s;
+        }
 
-/* RESPONSIVE */
-@media(max-width:768px){
+        .btn-view:hover {
+            background: #16a34a;
+        }
 
-.hamburger{
-display:block;
-}
+        /* MOBILE */
+        @media (max-width: 768px) {
+            header { padding: 15px 20px; }
+            .hamburger { display: block; color: white; }
+            
+            nav {
+                position: absolute;
+                top: 65px;
+                right: -100%;
+                background: #0f172a;
+                flex-direction: column;
+                width: 250px;
+                height: 100vh;
+                padding: 30px;
+                transition: 0.4s;
+            }
 
-nav{
-position:absolute;
-top:70px;
-right:0;
-background:rgba(0,0,0,0.9);
-flex-direction:column;
-width:220px;
-display:none;
-}
-
-nav.show{
-display:flex;
-}
-
-nav a{
-padding:10px;
-border-bottom:1px solid rgba(255,255,255,0.1);
-}
-
-section{
-padding:25px;
-}
-
-.hero{
-height:200px;
-}
-
-.hero h2{
-font-size:22px;
-}
-
-.pdf-item{
-flex-direction:column;
-align-items:flex-start;
-gap:10px;
-}
-}
-</style>
+            nav.show { right: 0; }
+            section { padding: 20px 5%; }
+            .pdf-item { flex-direction: column; text-align: center; gap: 15px; }
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-<div class="logo">Agro Market E-Commerce</div>
-<div class="hamburger" onclick="toggleMenu()">☰</div>
+    <header>
+        <div class="logo">Agro Market</div>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
 
-<nav id="navMenu">
-<a href="index.html">Home</a>
-<a href="data.html">Data Gathering</a>
-<a href="results.html" class="active">Results</a>
-<a href="reflections.html">Reflections</a>
-<a href="findings.html">Findings</a>
-<a href="walkthrough.html">Walkthrough</a>
-<a href="video.html">Video</a>
-</nav>
-</header>
+        <nav id="navMenu">
+            <a href="index.html">Home</a>
+            <a href="data.html">Data Gathering</a>
+            <a href="results.html" class="active">Results</a>
+            <a href="reflections.html">Reflections</a>
+            <a href="findings.html">Findings</a>
+            <a href="walkthrough.html">Walkthrough</a>
+            <a href="video.html">Video</a>
+        </nav>
+    </header>
 
-<!-- HERO -->
-<section class="hero">
-<div class="hero-content">
-<h2>Results</h2>
-<p>Usability Testing and Evaluation Outcomes</p>
-</div>
-</section>
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Results</h2>
+            <p>Usability Testing and Evaluation Outcomes</p>
+        </div>
+    </section>
 
-<section>
+    <section>
 
-<!-- SUMMARY -->
-<div class="card">
-<span class="tag">Summary</span>
-<h2>Usability Testing Results</h2>
-<p>
-The usability testing revealed that users can easily navigate the Agro E-Commerce prototype.
-Most participants found the interface simple, clear, and user-friendly.
-</p>
-</div>
+        <div class="card">
+            <span class="tag">Summary</span>
+            <h2>Usability Testing Results</h2>
+            <p>
+                The usability testing revealed that users can easily navigate the Agro E-Commerce prototype.
+                Most participants found the interface simple, clear, and user-friendly.
+            </p>
+        </div>
 
-<!-- ISSUES -->
-<div class="card">
-<span class="tag">Key Issues</span>
-<h2>Identified Problems</h2>
-<p>
-• Some navigation elements are unclear for first-time users<br>
-• Minor spacing issues on smaller screens<br>
-• Certain buttons need clearer labels
-</p>
-</div>
+        <div class="card">
+            <span class="tag">Key Issues</span>
+            <h2>Identified Problems</h2>
+            <p>
+                • Some navigation elements are unclear for first-time users<br>
+                • Minor spacing issues on smaller screens<br>
+                • Certain buttons need clearer labels
+            </p>
+        </div>
 
-<!-- DISCUSSION -->
-<div class="card">
-<span class="tag">Discussion</span>
-<h2>Findings Analysis</h2>
-<p>
-The system performs well in terms of usability. However, improvements in navigation clarity,
-visual hierarchy, and mobile layout consistency are still needed.
-</p>
-</div>
+        <div class="card">
+            <span class="tag">Discussion</span>
+            <h2>Findings Analysis</h2>
+            <p>
+                The system performs well in terms of usability. However, improvements in navigation clarity,
+                visual hierarchy, and mobile layout consistency are still needed.
+            </p>
+        </div>
 
-<!-- RECOMMENDATIONS -->
-<div class="card">
-<span class="tag">Recommendations</span>
-<h2>Improvement Suggestions</h2>
-<p>
-• Improve navigation structure<br>
-• Enhance button labels and icons<br>
-• Optimize mobile responsiveness<br>
-• Maintain consistent spacing across pages
-</p>
-</div>
+        <div class="card">
+            <span class="tag">Recommendations</span>
+            <h2>Improvement Suggestions</h2>
+            <p>
+                • Improve navigation structure<br>
+                • Enhance button labels and icons<br>
+                • Optimize mobile responsiveness<br>
+                • Maintain consistent spacing across pages
+            </p>
+        </div>
 
-<!-- PDF SECTION -->
-<div class="card">
-<span class="tag">Attachment</span>
-<h2>Heuristic Evaluation Reports</h2>
-<p>Each team member evaluated the system. View their reports below:</p>
+        <div class="card">
+            <span class="tag">Attachment</span>
+            <h2>Heuristic Evaluation Reports</h2>
+            <p>Each team member evaluated the system. View their reports below:</p>
 
-<div class="pdf-list">
+            <div class="pdf-list">
+                <div class="pdf-item">
+                    <div class="pdf-info">
+                        <h3>Rizza Moralida</h3>
+                        <p>Evaluator</p>
+                    </div>
+                    <a href="Heuristic_Evaluation_Workbook_1_Fillable.pdf" target="_blank" class="btn-view">📄 View PDF</a>
+                </div>
 
-<div class="pdf-item">
-<div>
-<h3>Rizza Moralida</h3>
-<p>Evaluator</p>
-</div>
-<a href="Heuristic_Evaluation_Workbook_1_Fillable.pdf" target="_blank">📄 View PDF</a>
-</div>
+                <div class="pdf-item">
+                    <div class="pdf-info">
+                        <h3>Mary Joy Perdon</h3>
+                        <p>Evaluator</p>
+                    </div>
+                    <a href="Heuristic_Evaluation_Workbook_1_Fillable.pdf" target="_blank" class="btn-view">📄 View PDF</a>
+                </div>
 
-<div class="pdf-item">
-<div>
-<h3>Mary Joy Perdon</h3>
-<p>Evaluator</p>
-</div>
-<a href="Heuristic_Evaluation_Workbook_1_Fillable.pdf" target="_blank">📄 View PDF</a>
-</div>
+                <div class="pdf-item">
+                    <div class="pdf-info">
+                        <h3>Princess Irish Oliver</h3>
+                        <p>Evaluator</p>
+                    </div>
+                    <a href="Heuristic_Evaluation_Workbook_1_Fillable.pdf" target="_blank" class="btn-view">📄 View PDF</a>
+                </div>
 
-<div class="pdf-item">
-<div>
-<h3>Princess Irish Oliver</h3>
-<p>Evaluator</p>
-</div>
-<a href="Heuristic_Evaluation_Workbook_1_Fillable.pdf" target="_blank">📄 View PDF</a>
-</div>
+                <div class="pdf-item">
+                    <div class="pdf-info">
+                        <h3>Emerson Jay Ricarte</h3>
+                        <p>Evaluator</p>
+                    </div>
+                    <a href="Heuristic_Evaluation_Workbook_1_Fillable.pdf" target="_blank" class="btn-view">📄 View PDF</a>
+                </div>
+            </div>
+        </div>
 
-<div class="pdf-item">
-<div>
-<h3>Emerson Jay Ricarte</h3>
-<p>Evaluator</p>
-</div>
-<a href="Heuristic_Evaluation_Workbook_1_Fillable.pdf" target="_blank">📄 View PDF</a>
-</div>
+    </section>
 
-</div>
-</div>
-
-</section>
-
-<script>
-function toggleMenu(){
-document.getElementById("navMenu").classList.toggle("show");
-}
-</script>
+    <script>
+        function toggleMenu(){
+            document.getElementById("navMenu").classList.toggle("show");
+        }
+    </script>
 
 </body>
 </html>
