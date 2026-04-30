@@ -6,6 +6,7 @@
     <title>Agro Market E-Commerce | Results</title>
 
     <style>
+        /* RESET & BASE STYLES */
         * {
             margin: 0;
             padding: 0;
@@ -17,6 +18,7 @@
             background: linear-gradient(135deg, #f5f7fa, #e9f5ee);
             color: #333;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         /* HEADER & NAVIGATION */
@@ -39,7 +41,7 @@
             color: #22c55e;
             font-weight: 800;
             font-size: 1.2rem;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
         .hamburger {
@@ -67,12 +69,12 @@
 
         /* HERO SECTION */
         .hero {
-            height: 280px;
+            height: 300px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
                         url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000') center/cover;
             color: white;
             margin-top: 60px;
@@ -81,12 +83,20 @@
         .hero-content h2 {
             font-size: 2.5rem;
             margin-bottom: 10px;
+            color: white;
+        }
+
+        /* THE FIX IS HERE */
+        .hero-content p {
+            color: #ffffff; /* This makes the sub-text white */
+            font-size: 1.1rem;
+            opacity: 0.9;
         }
 
         /* MAIN CONTENT */
         section {
             padding: 40px 10%;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
@@ -95,13 +105,9 @@
             padding: 30px;
             border-radius: 16px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            margin-bottom: 25px;
-            border: 1px solid rgba(0,0,0,0.02);
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
+            margin-bottom: 30px;
+            border: 1px solid rgba(0,0,0,0.03);
+            width: 100%;
         }
 
         .tag {
@@ -110,15 +116,15 @@
             background: #dcfce7;
             color: #166534;
             border-radius: 20px;
-            font-size: 11px;
-            font-weight: 700;
+            font-size: 12px;
+            font-weight: 600;
             margin-bottom: 15px;
             text-transform: uppercase;
         }
 
         h2 {
             margin-bottom: 15px;
-            color: white;
+            color: #0f172a;
         }
 
         p {
@@ -126,7 +132,22 @@
             font-size: 0.95rem;
         }
 
-        /* PDF LIST STYLING */
+        /* GRID SYSTEM */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .result-item {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #22c55e;
+        }
+
+        /* PDF LIST STYLING (Modernized) */
         .pdf-list {
             display: flex;
             flex-direction: column;
@@ -148,22 +169,12 @@
         .pdf-item:hover {
             border-color: #22c55e;
             background: #f0fdf4;
-        }
-
-        .pdf-info h3 {
-            font-size: 1rem;
-            color: #334155;
-            margin-bottom: 2px;
-        }
-
-        .pdf-info p {
-            font-size: 0.85rem;
-            color: #64748b;
+            transform: translateX(5px);
         }
 
         .btn-view {
             background: #22c55e;
-            color: white;
+            color: white !important;
             padding: 8px 18px;
             border-radius: 8px;
             text-decoration: none;
@@ -176,11 +187,10 @@
             background: #16a34a;
         }
 
-        /* MOBILE */
+        /* MOBILE RESPONSIVENESS */
         @media (max-width: 768px) {
             header { padding: 15px 20px; }
-            .hamburger { display: block; color: white; }
-            
+            .hamburger { display: block; }
             nav {
                 position: absolute;
                 top: 65px;
@@ -192,9 +202,9 @@
                 padding: 30px;
                 transition: 0.4s;
             }
-
             nav.show { right: 0; }
             section { padding: 20px 5%; }
+            .hero-content h2 { font-size: 1.8rem; }
             .pdf-item { flex-direction: column; text-align: center; gap: 15px; }
         }
     </style>
@@ -235,14 +245,31 @@
             </p>
         </div>
 
-        <div class="card">
-            <span class="tag">Key Issues</span>
-            <h2>Identified Problems</h2>
-            <p>
-                • Some navigation elements are unclear for first-time users<br>
-                • Minor spacing issues on smaller screens<br>
-                • Certain buttons need clearer labels
-            </p>
+        <div class="grid">
+            <div class="card">
+                <span class="tag">Key Issues</span>
+                <h2>Identified Problems</h2>
+                <div class="result-item" style="margin-bottom: 10px;">
+                    <p>• Some navigation elements are unclear for first-time users</p>
+                </div>
+                <div class="result-item" style="margin-bottom: 10px;">
+                    <p>• Minor spacing issues on smaller screens</p>
+                </div>
+                <div class="result-item">
+                    <p>• Certain buttons need clearer labels</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="tag">Recommendations</span>
+                <h2>Improvement Suggestions</h2>
+                <ul style="list-style: none; color: #475569; font-size: 0.95rem;">
+                    <li style="margin-bottom: 8px;">✅ Improve navigation structure</li>
+                    <li style="margin-bottom: 8px;">✅ Enhance button labels and icons</li>
+                    <li style="margin-bottom: 8px;">✅ Optimize mobile responsiveness</li>
+                    <li>✅ Maintain consistent spacing</li>
+                </ul>
+            </div>
         </div>
 
         <div class="card">
@@ -250,18 +277,7 @@
             <h2>Findings Analysis</h2>
             <p>
                 The system performs well in terms of usability. However, improvements in navigation clarity,
-                visual hierarchy, and mobile layout consistency are still needed.
-            </p>
-        </div>
-
-        <div class="card">
-            <span class="tag">Recommendations</span>
-            <h2>Improvement Suggestions</h2>
-            <p>
-                • Improve navigation structure<br>
-                • Enhance button labels and icons<br>
-                • Optimize mobile responsiveness<br>
-                • Maintain consistent spacing across pages
+                visual hierarchy, and mobile layout consistency are still needed to reach a professional standard.
             </p>
         </div>
 
@@ -273,32 +289,32 @@
             <div class="pdf-list">
                 <div class="pdf-item">
                     <div class="pdf-info">
-                        <h3>Rizza Moralida</h3>
-                        <p>Evaluator</p>
+                        <h3 style="font-size: 1rem; color: #0f172a;">Rizza Moralida</h3>
+                        <p style="font-size: 0.85rem;">Evaluator</p>
                     </div>
                     <a href="Heuristic_Evaluation_Workbook_1_Fillable.pdf" target="_blank" class="btn-view">📄 View PDF</a>
                 </div>
 
                 <div class="pdf-item">
                     <div class="pdf-info">
-                        <h3>Mary Joy Perdon</h3>
-                        <p>Evaluator</p>
+                        <h3 style="font-size: 1rem; color: #0f172a;">Mary Joy Perdon</h3>
+                        <p style="font-size: 0.85rem;">Evaluator</p>
                     </div>
                     <a href="Heuristic_Evaluation_Workbook_1_Fillable.pdf" target="_blank" class="btn-view">📄 View PDF</a>
                 </div>
 
                 <div class="pdf-item">
                     <div class="pdf-info">
-                        <h3>Princess Irish Oliver</h3>
-                        <p>Evaluator</p>
+                        <h3 style="font-size: 1rem; color: #0f172a;">Princess Irish Oliver</h3>
+                        <p style="font-size: 0.85rem;">Evaluator</p>
                     </div>
                     <a href="Heuristic_Evaluation_Workbook_1_Fillable.pdf" target="_blank" class="btn-view">📄 View PDF</a>
                 </div>
 
                 <div class="pdf-item">
                     <div class="pdf-info">
-                        <h3>Emerson Jay Ricarte</h3>
-                        <p>Evaluator</p>
+                        <h3 style="font-size: 1rem; color: #0f172a;">Emerson Jay Ricarte</h3>
+                        <p style="font-size: 0.85rem;">Evaluator</p>
                     </div>
                     <a href="Heuristic_Evaluation_Workbook_1_Fillable.pdf" target="_blank" class="btn-view">📄 View PDF</a>
                 </div>
