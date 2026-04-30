@@ -74,16 +74,18 @@
             text-align: center;
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
                         url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80&w=1000') center/cover;
-            color: white;
             margin-top: 60px;
         }
 
+        /* TARGETED FIX: These rules ensure hero text is white regardless of global styles */
         .hero-content h2 {
             font-size: 2.5rem;
             margin-bottom: 10px;
+            color: #ffffff !important; /* Force white for the dark background */
         }
+
         .hero-content p {
-            color: #ffffff; /* Forces the text to be pure white */
+            color: #ffffff !important; /* Force white for the dark background */
             font-size: 1.1rem;
             margin-top: 5px;
         }
@@ -121,6 +123,7 @@
             text-transform: uppercase;
         }
 
+        /* General H2 for cards remains dark blue/gray */
         h2 {
             margin-bottom: 15px;
             color: #1e293b;
@@ -183,7 +186,7 @@
 
         .feature-item img {
             width: 100%;
-            height: 350px; /* Taller look as requested */
+            height: 350px; 
             object-fit: cover;
             border-radius: 8px;
             margin-bottom: 15px;
