@@ -1,355 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agro Market E-Commerce | Walkthrough</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Market E-Commerce | Walkthrough</title>
 
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Segoe UI', sans-serif;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-body{
-background:linear-gradient(135deg,#f5f7fa,#e9f5ee);
-}
+        body {
+            background: linear-gradient(135deg, #f5f7fa, #e9f5ee);
+            color: #333;
+            line-height: 1.6;
+        }
 
-/* HEADER (MATCH VIDEO PAGE) */
-header{
-position:fixed;
-top:0;
-width:100%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 40px;
-background:rgba(0,0,0,0.65);
-backdrop-filter:blur(10px);
-color:white;
-z-index:1000;
-}
+        /* HEADER & NAVIGATION */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(12px);
+            color: white;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
 
-.logo{
-color:#22c55e;
-font-weight:bold;
-}
+        .logo {
+            color: #22c55e;
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+        }
 
-.hamburger{
-display:none;
-font-size:24px;
-cursor:pointer;
-color:white;
-}
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
 
-nav{
-display:flex;
-gap:15px;
-}
+        nav {
+            display: flex;
+            gap: 20px;
+        }
 
-nav a{
-color:white;
-text-decoration:none;
-font-size:14px;
-transition:0.3s;
-}
+        nav a {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
 
-nav a:hover{
-color:#22c55e;
-}
+        nav a:hover, nav a.active {
+            color: #22c55e;
+        }
 
-.active{
-color:#22c55e;
-}
+        /* HERO SECTION */
+        .hero {
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
+                        url('https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?auto=format&fit=crop&q=80&w=1000') center/cover;
+            color: white;
+            margin-top: 60px;
+        }
 
-/* HERO */
-.hero{
-height:260px;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-background:url('img/walkthrough-hero.jpg') center/cover no-repeat;
-position:relative;
-margin-top:70px;
-}
+        .hero-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
 
-.hero::before{
-content:"";
-position:absolute;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.55);
-}
+        /* MAIN CONTENT */
+        section {
+            padding: 40px 10%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-.hero-content{
-position:relative;
-color:white;
-}
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border: 1px solid rgba(0,0,0,0.02);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
 
-/* SECTION */
-section{
-padding:40px 60px;
-}
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #dcfce7;
+            color: #166534;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
 
-/* CARD */
-.card{
-display:flex;
-justify-content:space-between;
-gap:25px;
-background:white;
-padding:25px;
-border-radius:15px;
-box-shadow:0 8px 25px rgba(0,0,0,0.08);
-margin-bottom:20px;
-}
+        h2 {
+            margin-bottom: 10px;
+            color: #1e293b;
+            font-size: 1.4rem;
+        }
 
-/* TAG */
-.tag{
-display:inline-block;
-padding:5px 10px;
-background:#dcfce7;
-color:#166534;
-border-radius:20px;
-font-size:12px;
-margin-bottom:10px;
-}
+        .small {
+            font-size: 15px;
+            color: #64748b;
+        }
 
-/* IMAGE HOLDERS */
-.img-holder{
-width:100%;
-height:110px;
-border-radius:10px;
-overflow:hidden;
-display:flex;
-align-items:center;
-justify-content:center;
-background:#fff;
-}
+        /* IMAGE HOLDERS */
+        .img-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 250px;
+        }
 
-.img-holder img{
-max-width:100%;
-max-height:100%;
-object-fit:contain;
-}
+        .img-holder {
+            width: 100%;
+            background: #f1f5f9;
+            padding: 10px;
+            border-radius: 12px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+        }
 
-.img-box{
-display:flex;
-flex-direction:column;
-align-items:center;
-}
+        .img-holder img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+            object-fit: contain;
+        }
 
-.caption{
-font-size:12px;
-color:#555;
-margin-top:4px;
-text-align:center;
-}
+        .caption {
+            font-size: 12px;
+            font-weight: 600;
+            color: #22c55e;
+            margin-top: 8px;
+            text-align: center;
+            text-transform: uppercase;
+        }
 
-/* BUYER GRID (2 TOP / 2 BOTTOM) */
-.img-grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:10px;
-max-width:450px;
-}
+        /* GRIDS */
+        .img-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            max-width: 500px;
+        }
 
-/* SELLER GRID (3 TOP / 2 BOTTOM) */
-.img-grid-seller{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-grid-template-rows:auto auto;
-gap:10px;
-max-width:700px;
-}
+        .img-grid-seller {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            max-width: 700px;
+        }
 
-/* SELLER POSITION FIX */
-.img-grid-seller .img-box:nth-child(1){grid-column:1; grid-row:1;}
-.img-grid-seller .img-box:nth-child(2){grid-column:2; grid-row:1;}
-.img-grid-seller .img-box:nth-child(3){grid-column:3; grid-row:1;}
-.img-grid-seller .img-box:nth-child(4){grid-column:1; grid-row:2;}
-.img-grid-seller .img-box:nth-child(5){grid-column:2; grid-row:2;}
+        /* Grid Item sizing for multiples */
+        .img-grid .img-holder, 
+        .img-grid-seller .img-holder {
+            padding: 5px;
+        }
 
-/* RESPONSIVE (MATCH VIDEO PAGE) */
-@media (max-width:768px){
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .card { flex-direction: column; text-align: center; }
+            .img-grid-seller { grid-template-columns: repeat(2, 1fr); }
+        }
 
-.hamburger{
-display:block;
-}
+        @media (max-width: 768px) {
+            header { padding: 15px 20px; }
+            .hamburger { display: block; color: white; }
+            
+            nav {
+                position: absolute;
+                top: 65px;
+                right: -100%;
+                background: #0f172a;
+                flex-direction: column;
+                width: 250px;
+                height: 100vh;
+                padding: 30px;
+                transition: 0.4s;
+            }
 
-nav{
-position:absolute;
-top:70px;
-right:0;
-background:rgba(0,0,0,0.9);
-flex-direction:column;
-width:220px;
-padding:10px;
-display:none;
-}
-
-nav.show{
-display:flex;
-}
-
-nav a{
-padding:10px;
-border-bottom:1px solid rgba(255,255,255,0.1);
-font-size:13px;
-}
-
-section{
-padding:20px;
-}
-
-.card{
-flex-direction:column;
-}
-
-.img-grid,
-.img-grid-seller{
-grid-template-columns:1fr;
-max-width:100%;
-}
-
-.img-grid-seller .img-box,
-.img-grid .img-box{
-grid-column:auto !important;
-grid-row:auto !important;
-}
-}
-</style>
+            nav.show { right: 0; }
+            section { padding: 25px 5%; }
+            .img-grid, .img-grid-seller { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-<div class="logo">Agro Market E-Commerce</div>
-<div class="hamburger" onclick="toggleMenu()">☰</div>
+    <header>
+        <div class="logo">Agro Market</div>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
 
-<nav id="navMenu">
-<a href="index.html">Home</a>
-<a href="data.html">Data Gathering</a>
-<a href="results.html">Results</a>
-<a href="reflections.html">Reflections</a>
-<a href="findings.html">Findings</a>
-<a href="walkthrough.html" class="active">Walkthrough</a>
-<a href="video.html">Video</a>
-</nav>
-</header>
+        <nav id="navMenu">
+            <a href="index.html">Home</a>
+            <a href="data.html">Data Gathering</a>
+            <a href="results.html">Results</a>
+            <a href="reflections.html">Reflections</a>
+            <a href="findings.html">Findings</a>
+            <a href="walkthrough.html" class="active">Walkthrough</a>
+            <a href="video.html">Video</a>
+        </nav>
+    </header>
 
-<section class="hero">
-<div class="hero-content">
-<h2>Walkthrough</h2>
-<p>Step-by-step Guide of the Agro E-Commerce Prototype</p>
-</div>
-</section>
+    <section class="hero">
+        <div class="hero-content">
+            <h2>System Walkthrough</h2>
+            <p>Step-by-step Guide of the Agro E-Commerce Prototype</p>
+        </div>
+    </section>
 
-<section>
+    <section>
 
-<!-- STEP 1 -->
-<div class="card">
-<div class="left">
-<span class="tag">Step 1</span>
-<h2>Login Required</h2>
-<p class="small">Users must log in to access the system securely.</p>
-</div>
-<div class="img-box">
-<div class="img-holder"><img src="login.png"></div>
-<div class="caption">Login Page</div>
-</div>
-</div>
+        <div class="card">
+            <div class="left">
+                <span class="tag">Step 1</span>
+                <h2>Login Required</h2>
+                <p class="small">Users must log in to access the system securely.</p>
+            </div>
+            <div class="img-box">
+                <div class="img-holder"><img src="login.png" alt="Login"></div>
+                <div class="caption">Login Page</div>
+            </div>
+        </div>
 
-<!-- STEP 2 -->
-<div class="card">
-<div class="left">
-<span class="tag">Step 2</span>
-<h2>Select Buyer or Seller</h2>
-<p class="small">Users choose their role after login.</p>
-</div>
-<div class="img-box">
-<div class="img-holder"><img src="Frontpage.png"></div>
-<div class="caption">Role Selection</div>
-</div>
-</div>
+        <div class="card">
+            <div class="left">
+                <span class="tag">Step 2</span>
+                <h2>Select Buyer or Seller</h2>
+                <p class="small">Users choose their role after login.</p>
+            </div>
+            <div class="img-box">
+                <div class="img-holder"><img src="Frontpage.png" alt="Role Selection"></div>
+                <div class="caption">Role Selection</div>
+            </div>
+        </div>
 
-<!-- STEP 3 BUYER -->
-<div class="card">
-<div class="left">
-<span class="tag">Step 3 (Buyer)</span>
-<h2>Buyer Homepage</h2>
-<p class="small">Browse different agricultural products.</p>
-</div>
-<div class="img-box">
-<div class="img-holder"><img src="buyer page.png"></div>
-<div class="caption">Buyer Homepage</div>
-</div>
-</div>
+        <div class="card">
+            <div class="left">
+                <span class="tag">Step 3 (Buyer)</span>
+                <h2>Buyer Homepage</h2>
+                <p class="small">Browse different agricultural products.</p>
+            </div>
+            <div class="img-box">
+                <div class="img-holder"><img src="buyer page.png" alt="Buyer Homepage"></div>
+                <div class="caption">Buyer Homepage</div>
+            </div>
+        </div>
 
-<!-- STEP 3 SELLER -->
-<div class="card">
-<div class="left">
-<span class="tag">Step 3 (Seller)</span>
-<h2>Seller Homepage</h2>
-<p class="small">Post and manage products.</p>
-</div>
-<div class="img-box">
-<div class="img-holder"><img src="seller page.png"></div>
-<div class="caption">Seller Homepage</div>
-</div>
-</div>
+        <div class="card">
+            <div class="left">
+                <span class="tag">Step 3 (Seller)</span>
+                <h2>Seller Homepage</h2>
+                <p class="small">Post and manage products.</p>
+            </div>
+            <div class="img-box">
+                <div class="img-holder"><img src="seller page.png" alt="Seller Homepage"></div>
+                <div class="caption">Seller Homepage</div>
+            </div>
+        </div>
 
-<!-- STEP 4 BUYER -->
-<div class="card">
-<div class="left">
-<span class="tag">Step 4 (Buyer)</span>
-<h2>Buyer Features</h2>
-<p class="small">Buy, track orders, manage cart, and profile.</p>
-</div>
+        <div class="card">
+            <div class="left">
+                <span class="tag">Step 4 (Buyer)</span>
+                <h2>Buyer Features</h2>
+                <p class="small">Buy, track orders, manage cart, and profile.</p>
+            </div>
 
-<div class="img-grid">
-<div class="img-box"><div class="img-holder"><img src="buyer(home).png"></div><div class="caption">Buy</div></div>
-<div class="img-box"><div class="img-holder"><img src="buyer(order).png"></div><div class="caption">Track</div></div>
-<div class="img-box"><div class="img-holder"><img src="buyer(cart).png"></div><div class="caption">Cart</div></div>
-<div class="img-box"><div class="img-holder"><img src="buyer(profile).png"></div><div class="caption">Profile</div></div>
-</div>
-</div>
+            <div class="img-grid">
+                <div class="img-box">
+                    <div class="img-holder"><img src="buyer(home).png" alt="Buy"></div>
+                    <div class="caption">Buy</div>
+                </div>
+                <div class="img-box">
+                    <div class="img-holder"><img src="buyer(order).png" alt="Track"></div>
+                    <div class="caption">Track</div>
+                </div>
+                <div class="img-box">
+                    <div class="img-holder"><img src="buyer(cart).png" alt="Cart"></div>
+                    <div class="caption">Cart</div>
+                </div>
+                <div class="img-box">
+                    <div class="img-holder"><img src="buyer(profile).png" alt="Profile"></div>
+                    <div class="caption">Profile</div>
+                </div>
+            </div>
+        </div>
 
-<!-- STEP 4 SELLER -->
-<div class="card">
-<div class="left">
-<span class="tag">Step 4 (Seller)</span>
-<h2>Seller Features</h2>
-<p class="small">Manage dashboard, products, orders, messages, and profile.</p>
-</div>
+        <div class="card">
+            <div class="left">
+                <span class="tag">Step 4 (Seller)</span>
+                <h2>Seller Features</h2>
+                <p class="small">Manage dashboard, products, orders, messages, and profile.</p>
+            </div>
 
-<div class="img-grid-seller">
-<div class="img-box"><div class="img-holder"><img src="seller(dash).png"></div><div class="caption">Dashboard</div></div>
-<div class="img-box"><div class="img-holder"><img src="seller(products).png"></div><div class="caption">Products</div></div>
-<div class="img-box"><div class="img-holder"><img src="seller(order).png"></div><div class="caption">Orders</div></div>
-<div class="img-box"><div class="img-holder"><img src="seller(messages).png"></div><div class="caption">Messages</div></div>
-<div class="img-box"><div class="img-holder"><img src="seller(profile).png"></div><div class="caption">Profile</div></div>
-</div>
-</div>
+            <div class="img-grid-seller">
+                <div class="img-box">
+                    <div class="img-holder"><img src="seller(dash).png" alt="Dashboard"></div>
+                    <div class="caption">Dashboard</div>
+                </div>
+                <div class="img-box">
+                    <div class="img-holder"><img src="seller(products).png" alt="Products"></div>
+                    <div class="caption">Products</div>
+                </div>
+                <div class="img-box">
+                    <div class="img-holder"><img src="seller(order).png" alt="Orders"></div>
+                    <div class="caption">Orders</div>
+                </div>
+                <div class="img-box">
+                    <div class="img-holder"><img src="seller(messages).png" alt="Messages"></div>
+                    <div class="caption">Messages</div>
+                </div>
+                <div class="img-box">
+                    <div class="img-holder"><img src="seller(profile).png" alt="Profile"></div>
+                    <div class="caption">Profile</div>
+                </div>
+            </div>
+        </div>
 
-<!-- STEP 5 -->
-<div class="card">
-<div class="left">
-<span class="tag">Step 5</span>
-<h2>Feedback & Evaluation</h2>
-<p class="small">Users provide feedback based on usability testing and overall experience.</p>
-</div>
-</div>
+        <div class="card highlight-card" style="border-left: 6px solid #22c55e;">
+            <div class="left">
+                <span class="tag">Step 5</span>
+                <h2>Feedback & Evaluation</h2>
+                <p class="small">Users provide feedback based on usability testing and overall experience.</p>
+            </div>
+        </div>
 
-</section>
+    </section>
 
-<script>
-function toggleMenu(){
-document.getElementById("navMenu").classList.toggle("show");
-}
-</script>
+    <script>
+        function toggleMenu(){
+            document.getElementById("navMenu").classList.toggle("show");
+        }
+    </script>
 
 </body>
 </html>
