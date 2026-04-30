@@ -6,6 +6,7 @@
     <title>Agro Market E-Commerce | Walkthrough</title>
 
     <style>
+        /* RESET & BASE STYLES - Matches Data Gathering */
         * {
             margin: 0;
             padding: 0;
@@ -17,6 +18,7 @@
             background: linear-gradient(135deg, #f5f7fa, #e9f5ee);
             color: #333;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         /* HEADER & NAVIGATION */
@@ -67,7 +69,7 @@
 
         /* HERO SECTION */
         .hero {
-            height: 280px;
+            height: 300px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -81,12 +83,13 @@
         .hero-content h2 {
             font-size: 2.5rem;
             margin-bottom: 10px;
+            color: white;
         }
 
-        /* MAIN CONTENT */
+        /* MAIN CONTENT LAYOUT */
         section {
             padding: 40px 10%;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
@@ -96,7 +99,7 @@
             border-radius: 16px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
             margin-bottom: 30px;
-            border: 1px solid rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.03);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -109,16 +112,15 @@
             background: #dcfce7;
             color: #166534;
             border-radius: 20px;
-            font-size: 11px;
-            font-weight: 700;
+            font-size: 12px;
+            font-weight: 600;
             margin-bottom: 15px;
             text-transform: uppercase;
         }
 
         h2 {
-            margin-bottom: 10px;
-            color: white;
-            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #0f172a;
         }
 
         .small {
@@ -126,70 +128,70 @@
             color: #64748b;
         }
 
-        /* IMAGE HOLDERS */
+        /* IMAGE HOLDER SYSTEM - Optimized for Container Fitness */
         .img-box {
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-width: 250px;
+            min-width: 300px;
+            flex: 1;
         }
 
         .img-holder {
             width: 100%;
-            background: #f1f5f9;
+            aspect-ratio: 16 / 10;
+            background: #f8fafc;
             padding: 10px;
             border-radius: 12px;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
         }
 
         .img-holder img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            display: block;
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 6px;
             object-fit: contain;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
         .caption {
-            font-size: 12px;
-            font-weight: 600;
+            font-size: 11px;
+            font-weight: 700;
             color: #22c55e;
-            margin-top: 8px;
+            margin-top: 10px;
             text-align: center;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        /* GRIDS */
-        .img-grid {
+        /* GRID SYSTEM FOR MULTIPLE IMAGES */
+        .grid-container {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
             gap: 15px;
-            max-width: 500px;
+            width: 100%;
         }
 
-        .img-grid-seller {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            max-width: 700px;
+        .img-grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .img-grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+        /* Adjust grid holders to be slightly smaller */
+        .grid-container .img-holder {
+            aspect-ratio: 1 / 1; 
         }
 
-        /* Grid Item sizing for multiples */
-        .img-grid .img-holder, 
-        .img-grid-seller .img-holder {
-            padding: 5px;
-        }
-
-        /* RESPONSIVE */
+        /* MOBILE RESPONSIVENESS */
         @media (max-width: 992px) {
             .card { flex-direction: column; text-align: center; }
-            .img-grid-seller { grid-template-columns: repeat(2, 1fr); }
+            .img-box { width: 100%; }
         }
 
         @media (max-width: 768px) {
             header { padding: 15px 20px; }
-            .hamburger { display: block; color: white; }
-            
+            .hamburger { display: block; }
             nav {
                 position: absolute;
                 top: 65px;
@@ -201,10 +203,10 @@
                 padding: 30px;
                 transition: 0.4s;
             }
-
             nav.show { right: 0; }
-            section { padding: 25px 5%; }
-            .img-grid, .img-grid-seller { grid-template-columns: 1fr; }
+            section { padding: 20px 5%; }
+            .hero-content h2 { font-size: 1.8rem; }
+            .img-grid-2, .img-grid-3 { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -236,116 +238,118 @@
     <section>
 
         <div class="card">
-            <div class="left">
+            <div class="info">
                 <span class="tag">Step 1</span>
                 <h2>Login Required</h2>
-                <p class="small">Users must log in to access the system securely.</p>
+                <p class="small">The gateway to the marketplace. Users must authenticate to access personalized buyer or seller features.</p>
             </div>
             <div class="img-box">
-                <div class="img-holder"><img src="login.png" alt="Login"></div>
-                <div class="caption">Login Page</div>
+                <div class="img-holder">
+                    <img src="login.png" alt="Login Page">
+                </div>
+                <div class="caption">Authentication Portal</div>
             </div>
         </div>
 
         <div class="card">
-            <div class="left">
+            <div class="info">
                 <span class="tag">Step 2</span>
                 <h2>Select Buyer or Seller</h2>
-                <p class="small">Users choose their role after login.</p>
+                <p class="small">Dual-portal design allowing users to switch between sourcing fresh produce or managing their farm inventory.</p>
             </div>
             <div class="img-box">
-                <div class="img-holder"><img src="Frontpage.png" alt="Role Selection"></div>
-                <div class="caption">Role Selection</div>
+                <div class="img-holder">
+                    <img src="Frontpage.png" alt="Role Selection">
+                </div>
+                <div class="caption">Role Selection Dashboard</div>
             </div>
         </div>
 
         <div class="card">
-            <div class="left">
-                <span class="tag">Step 3 (Buyer)</span>
-                <h2>Buyer Homepage</h2>
-                <p class="small">Browse different agricultural products.</p>
+            <div class="info">
+                <span class="tag">Step 3</span>
+                <h2>Marketplace Overview</h2>
+                <p class="small">Comparison of the distinct interfaces designed for consumer browsing versus farmer management.</p>
             </div>
             <div class="img-box">
-                <div class="img-holder"><img src="buyer page.png" alt="Buyer Homepage"></div>
-                <div class="caption">Buyer Homepage</div>
+                <div class="grid-container img-grid-2">
+                    <div class="img-sub-box">
+                        <div class="img-holder"><img src="buyer page.png" alt="Buyer"></div>
+                        <div class="caption">Buyer Homepage</div>
+                    </div>
+                    <div class="img-sub-box">
+                        <div class="img-holder"><img src="seller page.png" alt="Seller"></div>
+                        <div class="caption">Seller Homepage</div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="card">
-            <div class="left">
-                <span class="tag">Step 3 (Seller)</span>
-                <h2>Seller Homepage</h2>
-                <p class="small">Post and manage products.</p>
-            </div>
-            <div class="img-box">
-                <div class="img-holder"><img src="seller page.png" alt="Seller Homepage"></div>
-                <div class="caption">Seller Homepage</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="left">
+            <div class="info">
                 <span class="tag">Step 4 (Buyer)</span>
                 <h2>Buyer Features</h2>
-                <p class="small">Buy, track orders, manage cart, and profile.</p>
+                <p class="small">A seamless shopping experience including product catalogs, cart management, and order tracking.</p>
             </div>
-
-            <div class="img-grid">
-                <div class="img-box">
-                    <div class="img-holder"><img src="buyer(home).png" alt="Buy"></div>
-                    <div class="caption">Buy</div>
-                </div>
-                <div class="img-box">
-                    <div class="img-holder"><img src="buyer(order).png" alt="Track"></div>
-                    <div class="caption">Track</div>
-                </div>
-                <div class="img-box">
-                    <div class="img-holder"><img src="buyer(cart).png" alt="Cart"></div>
-                    <div class="caption">Cart</div>
-                </div>
-                <div class="img-box">
-                    <div class="img-holder"><img src="buyer(profile).png" alt="Profile"></div>
-                    <div class="caption">Profile</div>
+            <div class="img-box">
+                <div class="grid-container img-grid-2">
+                    <div class="img-sub-box">
+                        <div class="img-holder"><img src="buyer(home).png" alt="Buy"></div>
+                        <div class="caption">Marketplace</div>
+                    </div>
+                    <div class="img-sub-box">
+                        <div class="img-holder"><img src="buyer(order).png" alt="Track"></div>
+                        <div class="caption">Track Orders</div>
+                    </div>
+                    <div class="img-sub-box">
+                        <div class="img-holder"><img src="buyer(cart).png" alt="Cart"></div>
+                        <div class="caption">Cart</div>
+                    </div>
+                    <div class="img-sub-box">
+                        <div class="img-holder"><img src="buyer(profile).png" alt="Profile"></div>
+                        <div class="caption">User Profile</div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="card">
-            <div class="left">
+            <div class="info">
                 <span class="tag">Step 4 (Seller)</span>
-                <h2>Seller Features</h2>
-                <p class="small">Manage dashboard, products, orders, messages, and profile.</p>
+                <h2>Seller Management</h2>
+                <p class="small">Comprehensive tools for farmers to monitor sales, update products, and communicate with clients.</p>
             </div>
-
-            <div class="img-grid-seller">
-                <div class="img-box">
-                    <div class="img-holder"><img src="seller(dash).png" alt="Dashboard"></div>
-                    <div class="caption">Dashboard</div>
-                </div>
-                <div class="img-box">
-                    <div class="img-holder"><img src="seller(products).png" alt="Products"></div>
-                    <div class="caption">Products</div>
-                </div>
-                <div class="img-box">
-                    <div class="img-holder"><img src="seller(order).png" alt="Orders"></div>
-                    <div class="caption">Orders</div>
-                </div>
-                <div class="img-box">
-                    <div class="img-holder"><img src="seller(messages).png" alt="Messages"></div>
-                    <div class="caption">Messages</div>
-                </div>
-                <div class="img-box">
-                    <div class="img-holder"><img src="seller(profile).png" alt="Profile"></div>
-                    <div class="caption">Profile</div>
+            <div class="img-box">
+                <div class="grid-container img-grid-3">
+                    <div class="img-sub-box">
+                        <div class="img-holder"><img src="seller(dash).png" alt="Dash"></div>
+                        <div class="caption">Dashboard</div>
+                    </div>
+                    <div class="img-sub-box">
+                        <div class="img-holder"><img src="seller(products).png" alt="Products"></div>
+                        <div class="caption">Products</div>
+                    </div>
+                    <div class="img-sub-box">
+                        <div class="img-holder"><img src="seller(order).png" alt="Orders"></div>
+                        <div class="caption">Sales</div>
+                    </div>
+                    <div class="img-sub-box">
+                        <div class="img-holder"><img src="seller(messages).png" alt="Messages"></div>
+                        <div class="caption">Inbox</div>
+                    </div>
+                    <div class="img-sub-box">
+                        <div class="img-holder"><img src="seller(profile).png" alt="Profile"></div>
+                        <div class="caption">Settings</div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="card highlight-card" style="border-left: 6px solid #22c55e;">
-            <div class="left">
+        <div class="card" style="border-left: 6px solid #22c55e;">
+            <div class="info">
                 <span class="tag">Step 5</span>
-                <h2>Feedback & Evaluation</h2>
-                <p class="small">Users provide feedback based on usability testing and overall experience.</p>
+                <h2>Final Evaluation</h2>
+                <p class="small">Post-walkthrough feedback collected to refine the user experience and interface consistency.</p>
             </div>
         </div>
 
